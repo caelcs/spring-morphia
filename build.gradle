@@ -49,7 +49,7 @@ jar {
     group = group
     version = version
     manifest {
-        attributes 'Implementation-Title': 'Spring Security Mongo',
+        attributes 'Implementation-Title': 'Spring Morphia',
                 'Implementation-Version': version,
                 'Built-By': System.getProperty('user.name'),
                 'Built-Date': new Date(),
