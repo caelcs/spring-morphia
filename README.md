@@ -14,7 +14,7 @@ Add this annotation to your configuration class:
 
 ```java
 @Configuration
-@EnableSpringMorphia(packageScan={"your.entity.packages"})
+@EnableSpringMorphia(entityPackageScan={"your.entity.packages"})
 public class Application {
 
 }

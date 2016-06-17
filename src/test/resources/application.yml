@@ -1,0 +1,9 @@
+mongo:
+  host: localhost
+  port: 27017
+  database: databasenametest
+  username: dev
+  password: dev
+
+morphia:
+  entityPackage: uk.co.caeldev.spring.morphia
