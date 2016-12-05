@@ -7,6 +7,6 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
 @Documented
-@Import({ MongoConfiguration.class, MorphiaConfiguration.class })
+@Import({ MongoConfiguration.class, MorphiaConfiguration.class, MongoClientConfiguration.class})
 public @interface EnableSpringMorphia {
 }
