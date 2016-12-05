@@ -9,17 +9,25 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
+import java.util.List;
+
 import static com.google.common.collect.Lists.newArrayList;
+import static java.util.stream.Collectors.toList;
 
 @Configuration
 @EnableConfigurationProperties(MongoSettings.class)
 @ConditionalOnProperty({
-        "mongo.host",
-        "mongo.port",
+        "mongo.servers[0].name",
+        "mongo.servers[0].port",
         "mongo.database",
         "mongo.username",
         "mongo.password"})
 public class MongoConfiguration {
+
+    @Bean
+    public MongoServer mongoServer() {
+        return new MongoServer();
+    }
 
     @Bean
     public MongoSettings mongoSettings() {
@@ -29,8 +37,10 @@ public class MongoConfiguration {
     @Bean
     @Profile("!test")
     public MongoClient mongoClient(final MongoSettings mongoSettings) throws Exception {
-        final ServerAddress serverAddress = new ServerAddress(
-                mongoSettings.getHost(), mongoSettings.getPort());
+        final List<ServerAddress> serverAddresses = mongoSettings.getServers()
+                .stream()
+                .map((MongoServer input) -> new ServerAddress(input.getName(), input.getPort()))
+                .collect(toList());
 
         final MongoCredential credential = MongoCredential.createCredential(
                 mongoSettings.getUsername(),
@@ -38,6 +48,6 @@ public class MongoConfiguration {
                 mongoSettings.getPassword().toCharArray());
 
         return new MongoClient(
-                serverAddress, newArrayList(credential));
+                serverAddresses, newArrayList(credential));
     }
 }

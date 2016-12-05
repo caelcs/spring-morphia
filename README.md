@@ -25,8 +25,8 @@ Having this annotation will define in your spring context all the necessary to u
 define the following properties in your app:
 
 ```
-mongo.host=localhost
-mongo.port=27017
+mongo.servers[0].name=server
+mongo.servers[0].port=2701
 mongo.database=testdb
 mongo.username=testuser
 mongo.password=testpassword

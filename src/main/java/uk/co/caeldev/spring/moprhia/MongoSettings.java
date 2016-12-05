@@ -1,14 +1,13 @@
 package uk.co.caeldev.spring.moprhia;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 @ConfigurationProperties(prefix="mongo")
 public class MongoSettings {
 
-    private String host;
-
-    private int port;
+    private List<MongoServer> servers;
 
     private String database;
 
@@ -16,20 +15,13 @@ public class MongoSettings {
 
     private String password;
 
-    public String getHost() {
-        return host;
+
+    public List<MongoServer> getServers() {
+        return servers;
     }
 
-    public void setHost(String host) {
-        this.host = host;
-    }
-
-    public int getPort() {
-        return port;
-    }
-
-    public void setPort(int port) {
-        this.port = port;
+    public void setServers(List<MongoServer> servers) {
+        this.servers = servers;
     }
 
     public String getDatabase() {
