@@ -6,6 +6,7 @@ import org.mongodb.morphia.Datastore;
 import org.mongodb.morphia.Key;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.Import;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -14,6 +15,7 @@ import static uk.org.fyodor.generators.RDG.string;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
+@Import(MongoTestConfiguration.class)
 @ActiveProfiles("test")
 public class EnableSpringMorphiaTest {
     
