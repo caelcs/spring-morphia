@@ -133,6 +133,7 @@ configurations {
 
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.data:spring-data-commons")
     compile("com.google.guava:guava:${guavaVersion}")
     compile("org.mongodb.morphia:morphia:${morphiaVersion}")
 
