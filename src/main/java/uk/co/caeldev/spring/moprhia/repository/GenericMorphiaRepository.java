@@ -6,21 +6,16 @@ import org.springframework.data.repository.CrudRepository;
 import uk.co.caeldev.spring.moprhia.utils.Iterables;
 
 import java.io.Serializable;
-import java.lang.reflect.ParameterizedType;
-import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
 
 import static java.util.Objects.nonNull;
-import static javafx.scene.input.KeyCode.T;
 
-public class BaseMorphiaRepository<T, ID extends Serializable> implements CrudRepository<T, ID> {
+public class GenericMorphiaRepository<T, ID extends Serializable> implements CrudRepository<T, ID> {
 
     protected Class<T> entityClazz;
 
     private final Datastore datastore;
 
-    public BaseMorphiaRepository(Class<T> clazz, final Datastore datastore) {
+    public GenericMorphiaRepository(Class<T> clazz, final Datastore datastore) {
         this.datastore = datastore;
         this.entityClazz = clazz;
     }

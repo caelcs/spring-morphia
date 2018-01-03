@@ -21,15 +21,15 @@ import static org.assertj.core.util.Lists.newArrayList;
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = {ApplicationConfiguration.class, MongoTestConfiguration.class})
 @ActiveProfiles("test")
-public class BaseMorphiaRepositoryIntegrationTest {
+public class GenericMorphiaRepositoryIntegrationTest {
 
     @Autowired
     private Datastore datastore;
-    private BaseMorphiaRepository<TestEntity, ObjectId> testEntityRepository;
+    private GenericMorphiaRepository<TestEntity, ObjectId> testEntityRepository;
 
     @Before
     public void testee() throws Exception {
-        testEntityRepository = new BaseMorphiaRepository<>(TestEntity.class, datastore);
+        testEntityRepository = new GenericMorphiaRepository<>(TestEntity.class, datastore);
     }
 
     @Before
