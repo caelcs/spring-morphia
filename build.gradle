@@ -133,8 +133,10 @@ configurations {
 
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.data:spring-data-commons")
     compile("com.google.guava:guava:${guavaVersion}")
     compile("org.mongodb.morphia:morphia:${morphiaVersion}")
+
 
     providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
 
@@ -143,6 +145,7 @@ dependencies {
     testCompile("uk.org.fyodor:fyodor-core:${fyodorVersion}")
     testCompile("uk.org.fyodor:fyodor-junit:${fyodorVersion}")
     testCompile("com.github.fakemongo:fongo:${fongoVersion}")
+    testCompile("org.apache.commons:commons-lang3:${apacheCommonsLang3Version}")
 }
 
 task wrapper(type: Wrapper) {

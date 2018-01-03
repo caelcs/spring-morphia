@@ -1,5 +1,7 @@
 package uk.co.caeldev.spring.morphia;
 
+import com.github.fakemongo.junit.FongoRule;
+import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mongodb.morphia.Datastore;
@@ -18,7 +20,10 @@ import static uk.org.fyodor.generators.RDG.string;
 @Import(MongoTestConfiguration.class)
 @ActiveProfiles("test")
 public class EnableSpringMorphiaTest {
-    
+
+    @Rule
+    public FongoRule fongoRule = new FongoRule();
+
     @Autowired
     private Datastore datastore;
     
