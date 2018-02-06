@@ -79,4 +79,8 @@ public class GenericMorphiaRepository<T, ID extends Serializable> implements Cru
     public Class<T> getEntityClass() {
         return entityClazz;
     }
+
+    protected Datastore getDatastore() {
+        return datastore;
+    }
 }
